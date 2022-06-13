@@ -1,19 +1,17 @@
-import { useState, useEffect } from 'react'
-
-import Home from './Home'
+import {  useState, useEffect } from 'react'
 import { fetchArticles } from '../utils/API-Requests'
+import ArticlesList from './Articles-List'
 
-export default function Articles() {
-    const [articles, setArticles] = useState([])
+export default function Articles({articles, setArticles}) {
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         fetchArticles().then((articlesData) => {
             setArticles(articlesData)
+            setIsLoading(false)
         })
-    }, [])
+    }, [setArticles])
 
-
-    return (
-        <Home articles={articles} setArticles={setArticles}/>
-  )
+    if(isLoading) return <p>Loading ...</p>
+    return (<ArticlesList articles={articles}/>)
 }

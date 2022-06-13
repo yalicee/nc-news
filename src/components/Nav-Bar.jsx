@@ -17,7 +17,7 @@ export default function NavBar() {
           <ul className="nav-bar">
               {topics.map((topic) => {
                   return <li key={topic.slug}>
-                      <Link to="/articles/:topic/article">{topic.slug}</Link>
+                      <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
                   </li>
               })}
           </ul>
