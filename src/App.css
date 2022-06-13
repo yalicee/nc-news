@@ -4,21 +4,28 @@
   background-color: #F1FAEE;
 }
 
-.header {
+header {
   text-align: center;
 }
 
 .nav-bar {
   list-style-type: none;
+  text-align: center;
 }
 
 .nav-bar li {
   display: inline;
+  margin-right: 10px;
 }
 
 .articles__list {
   border: 2px solid #E63946;
   margin: 10px;
   list-style: none;
+  text-align: center;
+}
+
+.single-article {
+  border: 2px solid #E63946;
   text-align: center;
 }

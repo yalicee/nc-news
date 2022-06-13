@@ -11,15 +11,15 @@ export default function NavBar() {
         })
     }, [])
 
-
   return (
       <>
           <ul className="nav-bar">
               {topics.map((topic) => {
                   return <li key={topic.slug}>
-                      <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
+                      <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
                   </li>
               })}
+          <Link to="/">all topics</Link>
           </ul>
       </>
   )
