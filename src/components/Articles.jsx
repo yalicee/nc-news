@@ -15,8 +15,6 @@ export default function Articles() {
 
 
     return (
-      <Routes>
-            <Route path ="/" element={<Home className="home" articles={articles} setArticles={setArticles}/>}></Route>
-      </Routes>
+        <Home articles={articles} setArticles={setArticles}/>
   )
 }
