@@ -23,3 +23,12 @@ export const fetchSingleArticle = (article_id) => {
     return res.data.article;
   });
 };
+
+export const patchArticle = (article_id, inc_amount) => {
+  console.log(inc_amount);
+  return NCNewsAPI.patch(`articles/${article_id}`, {
+    inc_votes: inc_amount,
+  }).then((res) => {
+    return res.data.article;
+  });
+};

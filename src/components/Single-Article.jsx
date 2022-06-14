@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
 import { fetchSingleArticle } from '../utils/API-Requests';
+import Votes from './Votes';
 
 export default function SingleArticle({isLoading, setIsLoading}) {
     const [article, setArticle] = useState({})
@@ -29,9 +30,8 @@ export default function SingleArticle({isLoading, setIsLoading}) {
       <p>{article.author}</p>
       <p>{article.body}</p>
       <p>Date: {date}</p>
-      <p>Votes: {article.votes}</p>
+      <Votes votes={article.votes} article_id={article.article_id} />
       <p>Comment count: {article.comment_count}</p>
-      <button>Upvote article</button>
       </div>
   )
 }

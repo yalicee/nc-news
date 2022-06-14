@@ -12,5 +12,5 @@ export default function Articles({articles, setArticles, isLoading, setIsLoading
     }, [setArticles, setIsLoading])
 
     if(isLoading) return <p>Loading ...</p>
-    return (<ArticlesList articles={articles}W/>)
+    return (<ArticlesList articles={articles}/>)
 }
