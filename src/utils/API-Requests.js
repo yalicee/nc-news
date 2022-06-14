@@ -25,10 +25,15 @@ export const fetchSingleArticle = (article_id) => {
 };
 
 export const patchArticle = (article_id, inc_amount) => {
-  console.log(inc_amount);
   return NCNewsAPI.patch(`articles/${article_id}`, {
     inc_votes: inc_amount,
   }).then((res) => {
     return res.data.article;
+  });
+};
+
+export const fetchComments = (article_id) => {
+  return NCNewsAPI.get(`articles/${article_id}/comments`).then((res) => {
+    return res.data.comments;
   });
 };
