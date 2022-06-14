@@ -6,7 +6,9 @@ import Votes from './Votes';
 
 export default function SingleArticle({isLoading, setIsLoading}) {
     const [article, setArticle] = useState({})
-  const [date, setDate] = useState("loading...");
+  const [date, setDate] = useState("...loading");
+  const [commentCount, setCommentCount] = useState(0)
+
 
 
     const { article_id } = useParams()
@@ -17,12 +19,11 @@ export default function SingleArticle({isLoading, setIsLoading}) {
             if (dateStr !== "Invalid Date") {
                 setDate(dateStr)
             }
-
             setIsLoading(false)
 
         })
-    }, [article_id, setIsLoading, article.created_at, setDate])
-
+    }, [article_id, setIsLoading, article.created_at, setDate, article.comment_count])
+    
     if(isLoading) return <p>Loading ...</p>
     return (
       <div className="single-article">
@@ -32,9 +33,8 @@ export default function SingleArticle({isLoading, setIsLoading}) {
       <p>{article.body}</p>
       <p>Date: {date}</p>
         <Votes votes={article.votes} article_id={article.article_id} />
-      <p>Comment count: {article.comment_count}</p>
-
-        <Comments article={article} isLoading={isLoading} setIsLoading={setIsLoading}/>
+      <p>Comment count: {parseInt(article.comment_count) + commentCount}</p>
+        <Comments article={article} isLoading={isLoading} setIsLoading={setIsLoading} setCommentCount={setCommentCount}/>
       </div>
   )
 }

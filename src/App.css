@@ -36,3 +36,8 @@ header {
   max-width: 50%;
   list-style: none;
 }
+.add-comment {
+  border: 2px solid #1d3557;
+  margin: auto;
+  width: 250px
+}

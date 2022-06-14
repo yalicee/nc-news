@@ -19,13 +19,13 @@ export const fetchTopics = () => {
 };
 
 export const fetchSingleArticle = (article_id) => {
-  return NCNewsAPI.get(`articles/${article_id}`).then((res) => {
+  return NCNewsAPI.get(`/articles/${article_id}`).then((res) => {
     return res.data.article;
   });
 };
 
 export const patchArticle = (article_id, inc_amount) => {
-  return NCNewsAPI.patch(`articles/${article_id}`, {
+  return NCNewsAPI.patch(`/articles/${article_id}`, {
     inc_votes: inc_amount,
   }).then((res) => {
     return res.data.article;
@@ -33,7 +33,21 @@ export const patchArticle = (article_id, inc_amount) => {
 };
 
 export const fetchComments = (article_id) => {
-  return NCNewsAPI.get(`articles/${article_id}/comments`).then((res) => {
+  return NCNewsAPI.get(`/articles/${article_id}/comments`).then((res) => {
     return res.data.comments;
+  });
+};
+
+export const postComment = (article_id, comment) => {
+  return NCNewsAPI.post(`/articles/${article_id}/comments`, comment).then(
+    (res) => {
+      return res.data.comment;
+    }
+  );
+};
+
+export const fetchUsers = () => {
+  return NCNewsAPI.get(`/users`).then((res) => {
+    return res.data.users;
   });
 };
