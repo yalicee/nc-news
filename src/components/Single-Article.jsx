@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
 import { fetchSingleArticle } from '../utils/API-Requests';
+import Comments from './Comments';
 import Votes from './Votes';
 
 export default function SingleArticle({isLoading, setIsLoading}) {
@@ -30,8 +31,10 @@ export default function SingleArticle({isLoading, setIsLoading}) {
       <p>{article.author}</p>
       <p>{article.body}</p>
       <p>Date: {date}</p>
-      <Votes votes={article.votes} article_id={article.article_id} />
+        <Votes votes={article.votes} article_id={article.article_id} />
       <p>Comment count: {article.comment_count}</p>
+
+        <Comments article={article} isLoading={isLoading} setIsLoading={setIsLoading}/>
       </div>
   )
 }
