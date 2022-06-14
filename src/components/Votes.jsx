@@ -15,7 +15,7 @@ const Votes = ({ votes, article_id}) => {
 
     const handleDownClick = ({ target: { value } }) => {
         setVoteCount((currCount) => currCount - 1);
-          patchArticle(value, 1).catch(() => {
+          patchArticle(value, -1).catch(() => {
           setVoteCount((currCount) => currCount + 1);
           setErr("Try again later");
         });
