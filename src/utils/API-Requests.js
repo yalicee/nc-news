@@ -17,3 +17,9 @@ export const fetchTopics = () => {
     return res.data.topics;
   });
 };
+
+export const fetchSingleArticle = (article_id) => {
+  return NCNewsAPI.get(`articles/${article_id}`).then((res) => {
+    return res.data.article;
+  });
+};
