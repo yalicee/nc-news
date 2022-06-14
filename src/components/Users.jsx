@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import { fetchUsers } from '../utils/API-Requests'
 import AddComment from './Add-Comment'
 
-export default function Users({comments, setComments, article, setCommentCount}) {
+export default function Users({comments, setComments, article, setCommentCount, isUpdated, setIsUpdated}) {
 
     const [users, setUsers] = useState([])
     useEffect(() => {
@@ -13,6 +13,6 @@ export default function Users({comments, setComments, article, setCommentCount})
 
 
   return (
-      <AddComment users={users} comments={comments} setComments={setComments} article={article} setCommentCount={setCommentCount} />
+      <AddComment users={users} comments={comments} setComments={setComments} article={article} setCommentCount={setCommentCount} setIsUpdated={setIsUpdated} isUpdated={isUpdated}/>
   )
 }

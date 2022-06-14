@@ -34,7 +34,7 @@ export default function SingleArticle({isLoading, setIsLoading}) {
       <p>Date: {date}</p>
         <Votes votes={article.votes} article_id={article.article_id} />
       <p>Comment count: {parseInt(article.comment_count) + commentCount}</p>
-        <Comments article={article} isLoading={isLoading} setIsLoading={setIsLoading} setCommentCount={setCommentCount}/>
+        <Comments article={article} isLoading={isLoading} setIsLoading={setIsLoading} setCommentCount={setCommentCount} commentCount={commentCount}/>
       </div>
   )
 }

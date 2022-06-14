@@ -1,24 +1,24 @@
 import {useState} from 'react'
 import { postComment } from '../utils/API-Requests'
 
-export default function AddComment({ users, article, setCommentCount }) {
+export default function AddComment({ users, article, setCommentCount, setIsUpdated, isUpdated }) {
  
     const [body, setBody] = useState("")
     const [author, setAuthor] = useState("")
 
-
-
     const handleCommentSubmit = (event) => {
 
         event.preventDefault()
- 
-        postComment(article.article_id, {
-            username: author,
-            body: body
-        })
-        
-   
-        setCommentCount((currCount) => currCount + 1);
+        if (author !== "") {
+            postComment(article.article_id, {
+                username: author,
+                body: body
+            }).then(() => {
+                setIsUpdated(!isUpdated)
+                setCommentCount((currCount) => currCount + 1);
+            })
+        }
+
     }
 
     return (
@@ -26,7 +26,7 @@ export default function AddComment({ users, article, setCommentCount }) {
 
         
     <label>Add a comment to the article
-                <select onChange={(event) => {
+                <select required onChange={(event) => {
                 setAuthor(event.target.value)
             }}>
                 <option selected disabled>
@@ -37,7 +37,7 @@ export default function AddComment({ users, article, setCommentCount }) {
         })}
     </select>
     
-    <textarea placeholder="write your comment here" rows="5" cols="25" onChange={(event) => {
+    <textarea required placeholder="write your comment here" rows="5" cols="25" onChange={(event) => {
                 setBody(event.target.value)
             }}>
                 
