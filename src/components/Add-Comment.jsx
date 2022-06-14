@@ -9,7 +9,7 @@ export default function AddComment({ users, article, setCommentCount, setIsUpdat
     const handleCommentSubmit = (event) => {
 
         event.preventDefault()
-        if (author !== "") {
+        if (author !== "Choose a user") {
             postComment(article.article_id, {
                 username: author,
                 body: body
@@ -19,6 +19,7 @@ export default function AddComment({ users, article, setCommentCount, setIsUpdat
             })
         }
 
+        event.target.reset()
     }
 
     return (
@@ -29,7 +30,7 @@ export default function AddComment({ users, article, setCommentCount, setIsUpdat
                 <select required onChange={(event) => {
                 setAuthor(event.target.value)
             }}>
-                <option selected disabled>
+                <option selected key="Choose a user">
             Choose a user
           </option>
         {users.map((user) => {
