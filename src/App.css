@@ -6,16 +6,12 @@
 
 header {
   text-align: center;
-}
-
-.nav-bar-wrapper {
-  margin: 50px;
+  color: #1d3557;
 }
 
 .nav-bar {
   list-style-type: none;
   text-align: center;
-  float: left;
   margin-bottom: 50px;
 }
 
@@ -27,6 +23,16 @@ header {
 .nav-bar-link {
   display: inline;
   margin-right: 10px;
+}
+
+.sort-bar {
+  display: inline;
+  width: 150px;
+}
+
+.sort-bar button {
+  border: 2px solid #A8DADC;
+  width: 150px;
 }
 
 .articles__list {
@@ -68,5 +74,8 @@ header {
 }
 
 .logged-in-user {
-  float: right
-}
+  border: 2px solid #a8dadc;
+  width: 250px;
+  display: inline-block;
+  
+} 

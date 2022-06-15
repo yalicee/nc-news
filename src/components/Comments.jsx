@@ -47,13 +47,14 @@ export default function Comments({article, isLoading, setIsLoading, setCommentCo
             <p>{comment.author}</p>
             <p>{comment.created_at}</p>
                 <p>{comment.votes}</p>
-                {
-                    !isDeleted ? <button onClick={() => {
+                
+                {loggedInUser===comment.author ?  <button onClick={() => {
                         handleDeleteComment(comment)
                         if (loggedInUser === comment.author) {
                             setIsDeleted(!isDeleted) 
                     }
-                }}>Delete comment</button> : null}
+                }}>Delete comment</button>  : null }
+               
 
               
             </li>
