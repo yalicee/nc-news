@@ -1,6 +1,7 @@
 import {  useEffect } from 'react'
 import { fetchArticles } from '../utils/API-Requests'
 import ArticlesList from './Articles-List'
+import SortBar from './Sort-Bar'
 
 export default function Articles({articles, setArticles, isLoading, setIsLoading}) {
 
@@ -12,5 +13,10 @@ export default function Articles({articles, setArticles, isLoading, setIsLoading
     }, [setArticles, setIsLoading])
 
     if(isLoading) return <p>Loading ...</p>
-    return (<ArticlesList articles={articles}/>)
+    return (
+        <>
+            <SortBar articles={articles} setArticles={setArticles} isLoading={isLoading} setIsLoading={setIsLoading}/>
+        <ArticlesList articles={articles} />
+        </>
+    )
 }

@@ -12,6 +12,20 @@ export const fetchArticles = (topic) => {
   );
 };
 
+export const fetchSortedArticles = (query) => {
+  const split = query.split("&")[0];
+  const sorted = split.split("=")[1];
+  const asc = query.split("=")[2];
+  return NCNewsAPI.get(`/articles`, {
+    params: {
+      sort_by: sorted,
+      order: asc,
+    },
+  }).then((res) => {
+    return res.data.articles;
+  });
+};
+
 export const fetchTopics = () => {
   return NCNewsAPI.get(`/topics`).then((res) => {
     return res.data.topics;

@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { postComment } from '../utils/API-Requests'
 
-export default function AddComment({ users, article, setCommentCount, setIsUpdated, isUpdated }) {
+export default function AddComment({ users, article, setCommentCount}) {
  
     const [body, setBody] = useState("")
     const [author, setAuthor] = useState("")
@@ -9,12 +9,11 @@ export default function AddComment({ users, article, setCommentCount, setIsUpdat
     const handleCommentSubmit = (event) => {
 
         event.preventDefault()
-        if (author !== "Choose a user") {
+        if (author !== "") {
             postComment(article.article_id, {
                 username: author,
                 body: body
             }).then(() => {
-                setIsUpdated(!isUpdated)
                 setCommentCount((currCount) => currCount + 1);
             })
         }

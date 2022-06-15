@@ -1,9 +1,9 @@
 import { useEffect} from 'react'
 import { useParams } from "react-router-dom";
 import { fetchArticles } from '../utils/API-Requests';
-import ArticlesList from './Articles-List';
+import SortBar from './Sort-Bar';
 
-export default function Topic({articles, setArticles}) {
+export default function Topic({articles, setArticles,isLoading, setIsLoading}) {
     
     
     const { topic_slug } = useParams()
@@ -12,8 +12,9 @@ export default function Topic({articles, setArticles}) {
             setArticles(articlesData)
         })
     }, [setArticles, topic_slug])
-
+  
+  if(isLoading) return <p>Loading ...</p>
   return (
-    <ArticlesList articles={articles}></ArticlesList>
+    <SortBar articles={articles} setArticles={setArticles} isLoading={isLoading} setIsLoading={setIsLoading}/>
   )
 }

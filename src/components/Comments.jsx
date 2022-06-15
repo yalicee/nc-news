@@ -6,7 +6,6 @@ import Users from './Users';
 
 export default function Comments({article, isLoading, setIsLoading, setCommentCount, commentCount}) {
     const [comments, setComments] = useState([])
-    const [isUpdated, setIsUpdated] = useState(false)
     
     useEffect(() => {
         if (article.article_id) {
@@ -15,12 +14,12 @@ export default function Comments({article, isLoading, setIsLoading, setCommentCo
                 setIsLoading(false)
             })
         }
-    }, [article.article_id, setIsLoading, isUpdated])
+    }, [article.article_id, setIsLoading, commentCount])
 
     if(isLoading) return <p>Loading ...</p>
     return (
         <>
-            <Users comments={comments} article={article} setComments={setComments} setCommentCount={setCommentCount} setIsUpdated={setIsUpdated} isUpdated={isUpdated}/>
+            <Users comments={comments} article={article} setComments={setComments} setCommentCount={setCommentCount}/>
         <CommentsList setIsLoading={setIsLoading} >
             <ul>{comments.map((comment) => {
             return <li key={comment.comment_id} className="comment">

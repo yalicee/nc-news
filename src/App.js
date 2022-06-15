@@ -33,7 +33,14 @@ function App() {
           ></Route>
           <Route
             path="/topics/:topic_slug"
-            element={<Topic articles={articles} setArticles={setArticles} />}
+            element={
+              <Topic
+                articles={articles}
+                setArticles={setArticles}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
+            }
           ></Route>
           <Route
             path="/articles/:article_id"
