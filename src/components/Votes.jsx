@@ -3,7 +3,9 @@ import { patchArticle } from "../utils/API-Requests";
 
 const Votes = ({ votes, article_id}) => {
     const [voteCount, setVoteCount] = useState(0);
-    const [err, setErr] = useState(null);
+  const [err, setErr] = useState(null);
+  
+  
   
     const handleUpClick = ({ target: { value } }) => {
       setVoteCount((currCount) => currCount + 1);
