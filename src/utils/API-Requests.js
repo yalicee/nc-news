@@ -53,6 +53,7 @@ export const fetchComments = (article_id) => {
 };
 
 export const postComment = (article_id, comment) => {
+  console.log(comment);
   return NCNewsAPI.post(`/articles/${article_id}/comments`, comment).then(
     (res) => {
       return res.data.comment;
