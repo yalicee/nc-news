@@ -1,15 +1,16 @@
 import {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
+import UseArticles from '../hooks/UseArticles';
 import { fetchSingleArticle } from '../utils/API-Requests';
 import Comments from './Comments';
 import Votes from './Votes';
 
-export default function SingleArticle({isLoading, setIsLoading}) {
+export default function SingleArticle() {
     const [article, setArticle] = useState({})
   const [date, setDate] = useState("...loading");
   const [commentCount, setCommentCount] = useState(0)
 
-
+  const { isLoading, setIsLoading} = UseArticles()
 
     const { article_id } = useParams()
     useEffect(() => {

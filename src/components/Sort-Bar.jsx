@@ -4,7 +4,7 @@ import { fetchSortedArticles } from "../utils/API-Requests";
 import ArticlesList from "./Articles-List";
 
 
-export default function SortBar({articles, setArticles, setIsLoading, isLoading}) {
+export default function SortBar({ articles, setArticles }) {
     let [, setSearchParams] = useSearchParams();
     const [asc, setAsc] = useState(false)
     const [isSorted, setIsSorted] = useState(false)
@@ -27,19 +27,16 @@ export default function SortBar({articles, setArticles, setIsLoading, isLoading}
             if (asc) {
                 fetchSortedArticles(`?sort_by=${sort}&order=asc`).then((articlesData) => {
                     setArticles(articlesData)
-                    setIsLoading(false)
                 })
             } else {
                 fetchSortedArticles(`?sort_by=${sort}`).then((articlesData) => {
                     setArticles(articlesData)
-                    setIsLoading(false)
                 })
             }
         }
         
-    }, [setArticles, setIsLoading, sort,asc])
+    }, [setArticles, sort,asc])
 
-    if(isLoading) return <p>Loading ...</p>
     return (
       <>
         <button value="votes" onClick={handleClick}>Votes</button>
