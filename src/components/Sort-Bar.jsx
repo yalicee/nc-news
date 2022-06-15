@@ -38,7 +38,8 @@ export default function SortBar({ articles, setArticles }) {
     }, [setArticles, sort,asc])
 
     return (
-      <>
+        <>
+      <div className="sort-bar">
         <button value="votes" onClick={handleClick}>Votes</button>
         <button value="comment_count" onClick={handleClick}>Comment count</button>
             <button value="created_at" onClick={handleClick}>Date</button>
@@ -46,8 +47,9 @@ export default function SortBar({ articles, setArticles }) {
                 isSorted ?  <button onClick={handleAsc}>{ asc ? "Descending" :  "Ascending " }</button> : null
             }
            
-        <ArticlesList articles={articles}/>
         
-      </>
+      </div>
+            <ArticlesList articles={articles} />
+            </>
   )
 }

@@ -1,16 +1,26 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #F1FAEE;
+  background-color: #FFF;
+  font-family: 'Roboto', sans-serif;
 }
 
-header {
+/* HEADER LAYOUT  */
+
+.header-link {
+  color: #344E41;
+  text-decoration: none;
   text-align: center;
 }
+
+
+
+/* NAVIGATION BAR LAYOUT  */
 
 .nav-bar {
   list-style-type: none;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .nav-bar li {
@@ -18,17 +28,34 @@ header {
   margin-right: 10px;
 }
 
-.articles__list {
-  border: 2px solid #E63946;
-  margin: 10px;
-  list-style: none;
-  text-align: center;
+.nav-bar-link {
+  display: inline;
+  margin-right: 10px;
 }
+
+/* SORT BAR LAYOUT  */
+
+.sort-bar {
+  width: 150px;
+  margin: auto;
+}
+
+.sort-bar button {
+  border: 2px solid #A8DADC;
+  width: 150px;
+}
+
+
+
+/* SINGLE ARTICLE LAYOUT  */
 
 .single-article {
   border: 2px solid #E63946;
   text-align: center;
 }
+
+/* COMMENT LAYOUT  */
+
 .comment {
   border: 2px solid #a8dadc;
   margin: auto;
@@ -40,4 +67,50 @@ header {
   border: 2px solid #1d3557;
   margin: auto;
   width: 250px
+}
+
+/* LOG IN LAYOUT  */
+
+.log-in {
+  border: 2px solid #1d3557;
+  margin: auto;
+  padding: 10px;
+  width: 150px;
+  min-height: 50px;
+}
+
+.log-in select{
+  border: 2px solid #1d3557;
+  margin: auto;
+  width: 150px
+}
+
+
+/* USER BAR LAYOUT */
+
+.logged-in-user {
+  border: 2px solid #a8dadc;
+  width: 250px;
+  display: inline-block;
+  
+} 
+
+/* ARTICLES LAYOUT */
+
+#article-body {
+  text-align: left;
+}
+
+.articles-layout {
+  border: 2px solid black;
+  /* background-color: #1d3557; */
+}
+
+
+.articles__list {
+  border: 2px solid #E63946;
+  margin: auto;
+  list-style: none;
+  text-align: center;
+  max-width: 50%;
 }

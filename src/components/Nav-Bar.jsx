@@ -19,7 +19,8 @@ export default function NavBar() {
                       <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
                   </li>
               })}
-          <Link to="/">all topics</Link>
+              <Link className="nav-bar-link" to="/">all topics</Link>
+              <Link to="/users">log in</Link>
           </ul>
       </>
   )

@@ -1,17 +1,22 @@
-import {useState} from 'react'
+import { useState, useContext } from 'react'
+import { UserContext } from "../contexts/User-Context";
+
 import { postComment } from '../utils/API-Requests'
 
 export default function AddComment({ users, article, setCommentCount}) {
  
     const [body, setBody] = useState("")
-    const [author, setAuthor] = useState("")
+
+    const { loggedInUser } = useContext(UserContext);
+
+
 
     const handleCommentSubmit = (event) => {
-
         event.preventDefault()
-        if (author !== "") {
+
+        if (loggedInUser !== "Not logged in") {
             postComment(article.article_id, {
-                username: author,
+                username: loggedInUser,
                 body: body
             }).then(() => {
                 setCommentCount((currCount) => currCount + 1);
@@ -26,7 +31,7 @@ export default function AddComment({ users, article, setCommentCount}) {
 
         
     <label>Add a comment to the article
-                <select required onChange={(event) => {
+                {/* <select required onChange={(event) => {
                 setAuthor(event.target.value)
             }}>
                 <option selected key="Choose a user">
@@ -35,7 +40,7 @@ export default function AddComment({ users, article, setCommentCount}) {
         {users.map((user) => {
             return <option value={user.username} key={user.username}>{user.username}</option>
         })}
-    </select>
+    </select> */}
     
     <textarea required placeholder="write your comment here" rows="5" cols="25" onChange={(event) => {
                 setBody(event.target.value)

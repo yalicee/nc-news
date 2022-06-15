@@ -53,11 +53,16 @@ export const fetchComments = (article_id) => {
 };
 
 export const postComment = (article_id, comment) => {
+  console.log(comment);
   return NCNewsAPI.post(`/articles/${article_id}/comments`, comment).then(
     (res) => {
       return res.data.comment;
     }
   );
+};
+
+export const deleteComment = (comment_id) => {
+  return NCNewsAPI.delete(`/comments/${comment_id}`);
 };
 
 export const fetchUsers = () => {
