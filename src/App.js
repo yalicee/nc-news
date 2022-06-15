@@ -22,7 +22,10 @@ function App() {
           <UserBar />
           <NavBar />
           <Routes>
-            <Route path="/" element={<Articles />}></Route>
+            <Route
+              path="/"
+              element={<Articles className="articles-layout" />}
+            ></Route>
             <Route path="/topics/:topic_slug" element={<Articles />}></Route>
             <Route
               path="/articles/:article_id"

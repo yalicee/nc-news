@@ -11,6 +11,8 @@ export default function Articles() {
   
   if(isLoading) return <p>Loading ...</p>
   return (
-    <SortBar articles={articles} setArticles={setArticles} />
+    <div  className="articles-layout">
+      <SortBar articles={articles} setArticles={setArticles} />
+    </div>
   )
 }
