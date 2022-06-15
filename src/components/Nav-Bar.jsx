@@ -20,7 +20,7 @@ export default function NavBar() {
                   </li>
               })}
               <Link className="nav-bar-link" to="/">all topics</Link>
-              <Link to="/users">log in</Link>
+              <Link to="/user">log in</Link>
           </ul>
       </>
   )

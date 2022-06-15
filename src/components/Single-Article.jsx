@@ -1,30 +1,19 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import { useParams } from "react-router-dom";
 import UseArticles from '../hooks/UseArticles';
-import { fetchSingleArticle } from '../utils/API-Requests';
 import Comments from './Comments';
 import Votes from './Votes';
+import NotFound from './Not-Found';
+import UseSingleArticle from '../hooks/UseSingleArticle';
 
 export default function SingleArticle() {
-    const [article, setArticle] = useState({})
-  const [date, setDate] = useState("...loading");
   const [commentCount, setCommentCount] = useState(0)
+  const { article_id } = useParams()
 
-  const { isLoading, setIsLoading} = UseArticles()
-
-    const { article_id } = useParams()
-    useEffect(() => {
-        fetchSingleArticle(article_id).then((articleData) => {
-            setArticle(articleData)
-            const dateStr = new Date(article.created_at).toDateString();
-            if (dateStr !== "Invalid Date") {
-                setDate(dateStr)
-            }
-            setIsLoading(false)
-
-        })
-    }, [article_id, setIsLoading, article.created_at, setDate, article.comment_count])
-    
+  const { isLoading, setIsLoading } = UseArticles()
+  const {article, date, notFound} = UseSingleArticle(article_id)
+  
+    if (notFound) return <NotFound article_id={article_id}/>
     if(isLoading) return <p>Loading ...</p>
     return (
       <div className="single-article">

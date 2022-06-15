@@ -10,6 +10,7 @@ import SingleArticle from "./components/Single-Article";
 import Users from "./components/Users";
 import { UserContext } from "./contexts/User-Context";
 import UserBar from "./components/User-Bar";
+import NotFound from "./components/Not-Found";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState("Not logged in");
@@ -25,13 +26,15 @@ function App() {
             <Route
               path="/"
               element={<Articles className="articles-layout" />}
-            ></Route>
-            <Route path="/topics/:topic_slug" element={<Articles />}></Route>
-            <Route
-              path="/articles/:article_id"
-              element={<SingleArticle />}
-            ></Route>
-            <Route path="/users" element={<Users />}></Route>
+            />
+            <Route path="/topics">
+              <Route path=":topic_slug" element={<Articles />} />
+            </Route>
+            <Route path="/articles">
+              <Route path=":article_id" element={<SingleArticle />} />
+            </Route>
+            <Route path="/user" element={<Users />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </UserContext.Provider>
