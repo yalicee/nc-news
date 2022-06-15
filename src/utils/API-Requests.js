@@ -60,6 +60,10 @@ export const postComment = (article_id, comment) => {
   );
 };
 
+export const deleteComment = (comment_id) => {
+  return NCNewsAPI.delete(`/comments/${comment_id}`);
+};
+
 export const fetchUsers = () => {
   return NCNewsAPI.get(`/users`).then((res) => {
     return res.data.users;
