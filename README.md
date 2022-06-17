@@ -16,6 +16,8 @@ View all users.
 
 ## Run Instructions
 
+Requires minimum Node version of v17.9.0
+
 ```
 git clone https://github.com/yangalexyangg/nc-news.git
 npm install
