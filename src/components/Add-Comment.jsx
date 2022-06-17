@@ -43,7 +43,8 @@ export default function AddComment({ users, article, setCommentCount}) {
             }}>
                 
     </textarea>
-    </label>
+            </label>
+            
     <button>post comment</button>
     </form>
   )

@@ -39,7 +39,8 @@ export default function SortBar({ articles, setArticles }) {
 
     return (
         <>
-      <div className="sort-bar">
+            <div className="sort-bar">
+                <h2>Sort by: </h2>
         <button value="votes" onClick={handleClick}>Votes</button>
         <button value="comment_count" onClick={handleClick}>Comment count</button>
             <button value="created_at" onClick={handleClick}>Date</button>

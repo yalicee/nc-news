@@ -27,12 +27,14 @@ const Votes = ({ votes, article_id}) => {
     return (
       <>
         <p>Votes: {votes + voteCount}</p>
+        <div className="votes-bar">
         <button value={article_id}onClick={handleUpClick}>
           Upvote
             </button>
             <button value={article_id}onClick={handleDownClick}>
           Downvote
-        </button>
+          </button>
+          </div>
       </>
     );
   };

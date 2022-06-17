@@ -1,6 +1,10 @@
 import {useState, useEffect} from 'react'
 import {Link} from "react-router-dom"
 import { fetchTopics } from '../utils/API-Requests'
+import Header from "../components/Header";
+import UserBar from "../components/User-Bar";
+
+
 
 export default function NavBar() {
     const [topics, setTopics] = useState([])
@@ -13,15 +17,17 @@ export default function NavBar() {
 
   return (
       <>
+          <Header />
           <ul className="nav-bar">
+              <Link className="nav-bar-link" to="/">Home</Link>
               {topics.map((topic) => {
                   return <li key={topic.slug}>
-                      <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
+                      <Link id="link"to={`/topics/${topic.slug}`}>{topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}</Link>
                   </li>
               })}
-              <Link className="nav-bar-link" to="/">all topics</Link>
-              <Link to="/user">log in</Link>
+              
           </ul>
+          <UserBar />
       </>
   )
 }

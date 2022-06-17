@@ -40,13 +40,15 @@ export default function Comments({article, isLoading, setIsLoading, setCommentCo
     return (
         <>
              <AddComment users={users} comments={comments} setComments={setComments} article={article} setCommentCount={setCommentCount}/>
-        <CommentsList setIsLoading={setIsLoading} >
-            <ul>{comments.map((comment) => {
+            <CommentsList setIsLoading={setIsLoading} >
+                <div className='comments-list'>
+                    <ul>{comments.map((comment) => {
+                const dateStr = new Date(comment.created_at).toDateString();
             return <li key={comment.comment_id} className="comment">
             <p>{comment.body}</p>
-            <p>{comment.author}</p>
-            <p>{comment.created_at}</p>
-                <p>{comment.votes}</p>
+            <p>Created at: {dateStr}</p>
+            <p>User: {comment.author}</p>
+                <p>Votes: {comment.votes}</p>
                 
                 {loggedInUser===comment.author ?  <button onClick={() => {
                         handleDeleteComment(comment)
@@ -58,7 +60,8 @@ export default function Comments({article, isLoading, setIsLoading, setCommentCo
 
               
             </li>
-        })}</ul>
+            })}</ul>
+                    </div>
             </CommentsList>
             </>
     )
