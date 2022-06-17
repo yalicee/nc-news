@@ -19,7 +19,7 @@ export default function Users({comments, setComments, article, setCommentCount})
 
 
   return (
-      <>
+      <div className='user-layout'>
           <form className="log-in" onSubmit={handleLoginSubmit}>
           <label> Please log in
                   <select required onChange={(event) => {
@@ -35,6 +35,6 @@ export default function Users({comments, setComments, article, setCommentCount})
               </label>
               <button>log in</button>
               </form>
-      </>
+      </div>
   )
 }

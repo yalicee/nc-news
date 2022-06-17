@@ -1,116 +1,226 @@
 * {
   margin: 0;
   padding: 0;
-  background-color: #FFF;
-  font-family: 'Roboto', sans-serif;
-}
-
-/* HEADER LAYOUT  */
-
-.header-link {
-  color: #344E41;
+  font-family: monospace, sans-serif;
   text-decoration: none;
-  text-align: center;
+  color: #f1faee;
 }
 
+body {
+  background-color: #db6c79;
+}
 
+header {
+  width: 100%;
+  background-color: #1d3557;
+  background-position: center;
+  background-size: cover;
+  position: relative
+}
 
-/* NAVIGATION BAR LAYOUT  */
+header h1 {
+  padding-top: 5%;
+  text-align: center;
+  font-size: 100px;
+  margin: auto;
+  color: #f1faee;
+}
 
 .nav-bar {
-  list-style-type: none;
-  text-align: center;
-  margin-bottom: 50px;
+  display: flex;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #457b9d;
+  list-style: none;
 }
 
-.nav-bar li {
-  display: inline;
-  margin-right: 10px;
+.nav-bar #link {
+  color: #f1faee;
+  border: 2.5px solid #f1faee;
+  padding: 2.5px 5px 2.5px 5px;
 }
 
 .nav-bar-link {
-  display: inline;
-  margin-right: 10px;
+  color: #f1faee;
+  border: 2.5px solid #f1faee;
+  padding: 2.5px 5px 2.5px 5px;
+  margin-right: 1px;
 }
 
-/* SORT BAR LAYOUT  */
-
-.sort-bar {
-  width: 150px;
-  margin: auto;
+.user-bar {
+  display: flex;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #457b9d;
 }
 
-.sort-bar button {
-  border: 2px solid #A8DADC;
-  width: 150px;
-}
-
-
-
-/* SINGLE ARTICLE LAYOUT  */
-
-.single-article {
-  border: 2px solid #E63946;
+.user-bar-link {
+  color: #f1faee;
+  border: 2.5px solid #f1faee;
+  padding: 2.5px 5px 2.5px 5px;
+  margin-right: 1px;
   text-align: center;
+  white-space: nowrap;
 }
 
-/* COMMENT LAYOUT  */
-
-.comment {
-  border: 2px solid #a8dadc;
-  margin: auto;
-  margin-top: 10px;
-  max-width: 50%;
-  list-style: none;
-}
-.add-comment {
-  border: 2px solid #1d3557;
-  margin: auto;
-  width: 250px
-}
-
-/* LOG IN LAYOUT  */
-
-.log-in {
-  border: 2px solid #1d3557;
-  margin: auto;
-  padding: 10px;
-  width: 150px;
-  min-height: 50px;
-}
-
-.log-in select{
-  border: 2px solid #1d3557;
-  margin: auto;
-  width: 150px
-}
-
-
-/* USER BAR LAYOUT */
-
-.logged-in-user {
-  border: 2px solid #a8dadc;
-  width: 250px;
-  display: inline-block;
-  
-} 
-
-/* ARTICLES LAYOUT */
-
-#article-body {
-  text-align: left;
+.user-bar p {
+  white-space: nowrap;
+  margin-right: 5px;
+  color: #f1faee;
 }
 
 .articles-layout {
-  border: 2px solid black;
-  /* background-color: #1d3557; */
+  border: 5px solid;
+  margin: 10px;
 }
 
+.sort-bar {
+  background-color: #457b9d;
+  padding: 10px;
+}
 
-.articles__list {
-  border: 2px solid #E63946;
-  margin: auto;
-  list-style: none;
+.sort-bar h2 {
+  font-size: 1em;
   text-align: center;
-  max-width: 50%;
+  margin: 2.5px;
+}
+
+.sort-bar button {
+  background-color: #db6c79;
+  padding: 2.5px 5px 2.5px 5px;
+  margin: 2.5px;
+}
+
+.articles-list {
+  margin: 10px;
+  padding: 5px;
+}
+
+.article-list-item {
+  border: 5px solid #1d3557;
+  margin: 5px;
+  margin-bottom: 10px;
+  padding: 5%;
+  list-style: none;
+}
+
+.article-list-item h2 {
+  text-align: center;
+}
+
+.article-list-item p {
+  margin: 10px;
+  padding: 5px;
+}
+
+.click-to-read {
+  margin: 10px;
+  padding: 5px;
+  color: #1d3557;
+  text-align: center;
+
+}
+
+.article-info-box {
+  border: 5px solid #f1faee;
+  margin: 10px; 
+  background-color: #FFA9A3;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.single-article {
+  border: 5px solid #1d3557;
+  margin: 5px;
+  margin-bottom: 10px;
+  padding: 5%;
+  list-style: none;
+}
+
+button {
+  background-color: #db6c79;
+  padding: 2.5px 5px 2.5px 5px;
+  margin: 2.5px;
+}
+
+.single-article h2 {
+  text-align: center;
+}
+
+.single-article p {
+  margin: 10px;
+  padding: 5px;
+}
+
+.comments-list {
+  border: 5px solid #1d3557;
+  margin: 10px; 
+}
+
+.comment {
+  list-style: none;
+  background-color: #db6c79;
+  border: 5px solid #f1faee;
+  margin: 10px;
+  white-space: normal;
+}
+
+.add-comment {
+  margin: auto;
+  width: 250px
+}
+.add-comment textarea {
+  width: 250px
+}
+
+.add-comment label {
+  margin: auto;
+}
+label,
+textarea {
+  font-size: .8rem;
+  letter-spacing: 1px;
+}
+
+textarea {
+  display: block;
+  margin: auto;
+  padding: 10px;
+  max-width: 100%;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #f1faee;
+  box-shadow: 1px 1px 1px #999;
+}
+
+label {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-layout {
+  padding: 50px;
+}
+
+.log-in {
+  border: 5px solid #f1faee;
+  margin: auto;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+}
+
+.log-in select{
+  border: 2.5px solid #1d3557;
+  margin: auto;
+  margin-top: 25px;
+  width: 150px;
+  background-color: #FFA9A3;
+}
+
+.log-in button {
+  margin: auto;
 }

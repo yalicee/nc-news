@@ -17,14 +17,16 @@ export default function SingleArticle() {
     if(isLoading) return <p>Loading ...</p>
     return (
       <div className="single-article">
-      <p>{article.title}</p>
-      <p>{article.topic}</p>
-      <p>{article.author}</p>
-      <p>{article.body}</p>
+      <h2>{article.title}</h2>
+      <p>Topic: {article.topic}</p>
+      <p>Author : {article.author}</p>
+        <p>{article.body}</p>
+        <div className='article-info-box'>
       <p>Date: {date}</p>
         <Votes votes={article.votes} article_id={article.article_id} />
       <p>Comment count: {parseInt(article.comment_count) + commentCount}</p>
         <Comments article={article} isLoading={isLoading} setIsLoading={setIsLoading} setCommentCount={setCommentCount} commentCount={commentCount}/>
+        </div>
       </div>
   )
 }
